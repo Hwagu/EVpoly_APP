@@ -14,7 +14,19 @@
         android:theme="@style/Theme.EVpoly_APP"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".Page_Notice"
+            android:exported="false" />
+        <activity
+            android:name=".Page_History"
+            android:exported="false" />
+        <activity
+            android:name=".Page_Parking"
+            android:exported="false" />
+        <activity
+            android:name=".Page_Home"
+            android:exported="false" />
+        <activity
+            android:name=".Page_Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
