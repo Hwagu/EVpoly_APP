@@ -5,7 +5,7 @@
     android:id="@+id/login_main_"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_LOGIN"
+    android:background="@drawable/bg_login"
     tools:context=".Page_Login" >
 
     <TextView
@@ -13,47 +13,59 @@
         android:layout_width="260dp"
         android:layout_height="25dp"
         android:layout_marginStart="69dp"
-        android:layout_marginTop="382dp"
         android:layout_marginEnd="83dp"
         android:hint="비밀번호를 입력하세요"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.538" />
 
     <TextView
         android:id="@+id/TEXT_inputID2"
         android:layout_width="260dp"
         android:layout_height="25dp"
         android:layout_marginStart="69dp"
-        android:layout_marginTop="312dp"
         android:layout_marginEnd="83dp"
         android:hint="아이디를 입력하세요"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.437" />
 
     <ImageView
         android:id="@+id/BTN_login"
         android:layout_width="315dp"
         android:layout_height="40dp"
-        android:layout_marginTop="456dp"
-        android:src="@drawable/loginBTN"
+        android:src="@drawable/btn_login"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.645" />
 
     <CheckBox
         android:id="@+id/CB_autologin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="180dp"
+        android:buttonTint="@color/gray"
         android:text="자동 로그인"
+        android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.745" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

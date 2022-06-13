@@ -4,8 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_HISTORY"
+    android:background="@drawable/bg_history"
     tools:context=".Page_History">
+
+    <Spinner
+        android:id="@+id/SB_parkingArea2"
+        android:layout_width="365dp"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_spinner"
+        android:entries="@array/parkingArea"
+
+        android:popupElevation="20dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.209" />
 
     <ImageView
         android:id="@+id/BTN_historyTOnotice"
@@ -14,7 +29,8 @@
         android:layout_marginEnd="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/X" />
+        app:srcCompat="@drawable/x"
+        android:contentDescription="TODO" />
 
     <ImageView
         android:id="@+id/BTN_historyTOparking"
@@ -22,9 +38,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="120dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/BTN_homeTOparking"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/X" />
+        app:srcCompat="@drawable/x" />
 
     <ImageView
         android:id="@+id/BTN_historyTOhome"
@@ -34,7 +49,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/BTN_historyTOparking"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/X" />
+        app:srcCompat="@drawable/x" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -43,5 +58,33 @@
         android:contentDescription="TODO"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/X" />
+        app:srcCompat="@drawable/x" />
+
+    <TextView
+        android:id="@+id/TEXT_date"
+        android:layout_width="140dp"
+        android:layout_height="35dp"
+        android:text="TextView"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.649"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.12" />
+
+    <ImageView
+        android:id="@+id/BTN_calendar"
+        android:layout_width="38dp"
+        android:layout_height="42dp"
+        android:onClick="mOnClick_DatePick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.321"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.11"
+        app:srcCompat="@drawable/icon_schedule" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
