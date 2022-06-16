@@ -47,29 +47,33 @@
 
     <Spinner
         android:id="@+id/SB_parkingArea"
-        android:layout_width="365dp"
-        android:layout_height="48dp"
+        android:layout_width="340dp"
+        android:layout_height="40dp"
         android:background="@drawable/bg_spinner"
         android:entries="@array/parkingArea"
+        android:popupBackground="@drawable/bg_spinner_popup"
         android:popupElevation="20dp"
-
+        android:popupTheme="@style/SpinnerItem.DropDownItem"
         android:spinnerMode="dropdown"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.105" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="266dp"
-        android:layout_height="30dp"
-        android:text="TextView"
         android:textColor="@color/black"
+        android:theme="@style/SpinnerItem"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.386"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.223" />
+        app:layout_constraintVertical_bias="0.113" />
+
+    <GridView
+        android:id="@+id/carGrid1"
+        android:layout_width="355dp"
+        android:layout_height="447dp"
+        android:numColumns="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.58" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

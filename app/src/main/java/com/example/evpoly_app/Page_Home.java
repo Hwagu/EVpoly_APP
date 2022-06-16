@@ -5,14 +5,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import net.daum.android.map.MapViewEventListener;
+//import com.google.android.gms.maps.MapView;
+import net.daum.mf.map.api.MapView;
+import net.daum.mf.map.api.MapPOIItem;
+import net.daum.mf.map.api.MapPoint;
 
 public class Page_Home extends AppCompatActivity {
 
     ImageView BTN_homeTOparking;
     ImageView BTN_homeTOhistory;
     ImageView BTN_homeTOnotice;
+
+    ViewGroup mapView;
+    RelativeLayout mapViewContainer;
 
 
     @Override
@@ -24,7 +34,7 @@ public class Page_Home extends AppCompatActivity {
         BTN_homeTOhistory = findViewById(R.id.BTN_homeTOhistory);
         BTN_homeTOnotice = findViewById(R.id.BTN_homeTOnotice);
 
-
+        //페이지 이동
         BTN_homeTOparking.setOnClickListener(
                 new Button.OnClickListener(){
                     @Override
@@ -53,5 +63,17 @@ public class Page_Home extends AppCompatActivity {
                 }
         );
 
+        //지도
+        MapView mapView = new MapView(this);
+        ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
+        mapViewContainer.addView(mapView);
+        mapView.setMapCenterPoint(MapPoint.mapPointWithGeoCoord(35.877412, 128.735869), true); //지도중심점
+        MapPOIItem marker = new MapPOIItem(); //마커
+        marker.setItemName("Default Marker");
+        marker.setTag(0);
+        marker.setMapPoint(MapPoint.mapPointWithGeoCoord(35.877412, 128.735869));
+        marker.setMarkerType(MapPOIItem.MarkerType.BluePin); // 기본으로 제공하는 BluePin 마커 모양.
+        marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin); // 마커를 클릭했을때, 기본으로 제공하는 RedPin 마커 모양.
+        mapView.addPOIItem(marker);
     }
 }

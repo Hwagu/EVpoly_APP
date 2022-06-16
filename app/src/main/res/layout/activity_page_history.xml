@@ -7,20 +7,35 @@
     android:background="@drawable/bg_history"
     tools:context=".Page_History">
 
+    <GridView
+        android:id="@+id/carGrid2"
+        android:layout_width="350dp"
+        android:layout_height="420dp"
+        android:numColumns="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.659" />
+
     <Spinner
         android:id="@+id/SB_parkingArea2"
-        android:layout_width="365dp"
-        android:layout_height="48dp"
+        android:layout_width="340dp"
+        android:layout_height="40dp"
         android:background="@drawable/bg_spinner"
         android:entries="@array/parkingArea"
 
+        android:popupBackground="@drawable/bg_spinner_popup"
         android:popupElevation="20dp"
+        android:popupTheme="@style/SpinnerItem.DropDownItem"
         android:spinnerMode="dropdown"
+        android:theme="@style/SpinnerItem"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.209" />
+        app:layout_constraintVertical_bias="0.181" />
 
     <ImageView
         android:id="@+id/BTN_historyTOnotice"
@@ -48,6 +63,7 @@
         android:layout_marginStart="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/BTN_historyTOparking"
+        app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/x" />
 
