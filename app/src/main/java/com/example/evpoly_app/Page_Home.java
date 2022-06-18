@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+
 import net.daum.android.map.MapViewEventListener;
 //import com.google.android.gms.maps.MapView;
 import net.daum.mf.map.api.MapView;
@@ -20,7 +22,9 @@ public class Page_Home extends AppCompatActivity {
     ImageView BTN_homeTOparking;
     ImageView BTN_homeTOhistory;
     ImageView BTN_homeTOnotice;
-
+    TextView  TEXT_todaycar;
+    TextView  TEXT_weeklycar;
+    TextView  TEXT_monthlycar;
     ViewGroup mapView;
     RelativeLayout mapViewContainer;
 
@@ -33,6 +37,10 @@ public class Page_Home extends AppCompatActivity {
         BTN_homeTOparking = findViewById(R.id.BTN_homeTOparking);
         BTN_homeTOhistory = findViewById(R.id.BTN_homeTOhistory);
         BTN_homeTOnotice = findViewById(R.id.BTN_homeTOnotice);
+        BTN_homeTOnotice = findViewById(R.id.BTN_homeTOnotice);
+        TEXT_todaycar = findViewById(R.id.TEXT_todaycar);
+        TEXT_weeklycar = findViewById(R.id.TEXT_weeklycar);
+        TEXT_monthlycar = findViewById(R.id.TEXT_monthlycar);
 
         //페이지 이동
         BTN_homeTOparking.setOnClickListener(
@@ -62,6 +70,11 @@ public class Page_Home extends AppCompatActivity {
                     }
                 }
         );
+
+        TEXT_todaycar.setText("11대 / 15대");
+        TEXT_weeklycar.setText("78대");
+        TEXT_monthlycar.setText("350대");
+
 
         //지도
         MapView mapView = new MapView(this);

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="parkingArea">
-        <item>수현 아파트</item>
-        <item>예림 마트</item>
-        <item>화영 아파트</item>
-        <item>다은 마트</item>
+        <item>1층</item>
+        <item>2층</item>
+        <item>3층</item>
     </string-array>
 
 </resources>
