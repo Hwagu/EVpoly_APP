@@ -3,7 +3,6 @@
     <string-array name="parkingArea">
         <item>1층</item>
         <item>2층</item>
-        <item>3층</item>
     </string-array>
 
 </resources>

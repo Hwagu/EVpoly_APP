@@ -1,14 +1,16 @@
 package com.example.evpoly_app;
 
+import android.graphics.drawable.Drawable;
+
 public class carItem {
     String carNum;
     String carAreaType;
     String carArea;
     String carEV;
     String carTime;
-    int resId;
+    Drawable resId;
 
-    public carItem(String carArea,String carAreaType, String carNum,String carEV,String carTime, int resId) {
+    public carItem(String carArea,String carAreaType, String carNum,String carEV,String carTime, Drawable resId) {
         this.carNum = carNum;
         this.carAreaType = carAreaType;
         this.carEV = carEV;
@@ -47,10 +49,10 @@ public class carItem {
     }
     public void setcarTime(String carTime) { this.carTime = carTime;}
 
-    public int getResId() {
+    public Drawable getResId() {
         return resId;
     }
-    public void setResId(int resId) {
+    public void setResId(Drawable resId) {
         this.resId = resId;
     }
 }
