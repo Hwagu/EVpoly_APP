@@ -24,9 +24,12 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.common.api.internal.BackgroundDetector;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -56,12 +59,13 @@ public class Page_Parking extends AppCompatActivity {
     public String carTime7;    public String carTime8;    public String carTime9;
     public String carTime10;   public String carTime = "-";
     public Bitmap getBlob;
-    public Drawable drawable;
-
+    public Drawable drawable1;
+    public Drawable drawable2;
     ImageView BTN_parkingTOhome;
     ImageView BTN_parkingTOhistory;
     ImageView BTN_parkingTOnotice;
     Spinner SB_parkingArea;
+    LinearLayout layout;
 
     private GridView carGrid1 = null;
     private GridViewAdapter adapter = null;
@@ -74,8 +78,8 @@ public class Page_Parking extends AppCompatActivity {
         BTN_parkingTOhome = findViewById(R.id.BTN_parkingTOhome);
         BTN_parkingTOhistory = findViewById(R.id.BTN_parkingTOhistory);
         BTN_parkingTOnotice = findViewById(R.id.BTN_parkingTOnotice);
-        drawable= getResources().getDrawable(R.drawable.nocar);
-
+        drawable1= getResources().getDrawable(R.drawable.nocar);
+        drawable2= getResources().getDrawable(R.drawable.nocar);
         //json 파싱
 
         String resultText = "[NULL]";
@@ -131,11 +135,11 @@ public class Page_Parking extends AppCompatActivity {
                 carGrid1 = (GridView) findViewById(R.id.carGrid1);
                 adapter = new GridViewAdapter();
                 if (position == 0) {  //1층
-                    car_photo = getResources().getDrawable(R.drawable.car1);
+                    car_photo = getResources().getDrawable(R.drawable.nocar);
 
                     //Adapter 안에 아이템의 정보 담기
-                    adapter.addItem(new carItem("1층 A구역","급속충전", carnum1,carEV1,carTime1,drawable));
-                    adapter.addItem(new carItem("1층 B구역","급속충전", carnum2,carEV2,carTime2,no_car_photo));
+                    adapter.addItem(new carItem("1층 A구역","급속충전", carnum1,carEV1,carTime1,drawable1));
+                    adapter.addItem(new carItem("1층 B구역","급속충전", carnum2,carEV2,carTime2,drawable2));
                     adapter.addItem(new carItem("1층 C구역","급속충전", carnum3,carEV3,carTime3,car_photo));
                     adapter.addItem(new carItem("2층 A구역","일반충전", carnum4,carEV4,carTime4,car_photo));
                     adapter.addItem(new carItem("2층 B구역","일반충전", carnum5,carEV5,carTime5,car_photo));
@@ -169,6 +173,18 @@ public class Page_Parking extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> adapterView) {}
             });
     }
+    //                    carnum3 = jsonObject.getString("차량번호");
+//                    carTime3 = jsonObject.getString("입차시간");
+//                    if(jsonObject.getString("차량 종류").equals("0")){
+//                        carEV3 =  "일반";
+//                    }else if(jsonObject.getString("차량 종류").equals("1")){
+//                        carEV3 =  "전기";
+//                    }else if(jsonObject.getString("차량 종류").equals("2")){
+//                    carEV3 =  "영업";
+//                    }else if(jsonObject.getString("차량 종류").equals("3")){
+//                    carEV3 =  "알 수 없음";}
+
+
     void JSONParse(String jsonStr){
         StringBuilder stringBuilder = new StringBuilder();
         try {
@@ -183,7 +199,7 @@ public class Page_Parking extends AppCompatActivity {
                    // getBlob=new Bitmap[];
                     Bitmap getBlob;
                     getBlob=StringToBitMap(jsonObject.getString("차량사진"));
-                    drawable = new BitmapDrawable(getBlob);
+                    drawable1 = new BitmapDrawable(getBlob);
                     if(jsonObject.getString("전기차 여부").equals("N")){
                         carEV1 =  "X";
                     }else if(jsonObject.getString("전기차 여부").equals("Y")){
@@ -192,6 +208,9 @@ public class Page_Parking extends AppCompatActivity {
                 {
                     carnum2 = jsonObject.getString("차량번호");
                     carTime2 = jsonObject.getString("입차시간");
+                    Bitmap getBlob;
+                    getBlob=StringToBitMap(jsonObject.getString("차량사진"));
+                    drawable2 = new BitmapDrawable(getBlob);
                     if(jsonObject.getString("전기차 여부").equals("N")){
                         carEV2 =  "X";
                     }else if(jsonObject.getString("전기차 여부").equals("Y")){
@@ -200,10 +219,18 @@ public class Page_Parking extends AppCompatActivity {
                 {
                     carnum3 = jsonObject.getString("차량번호");
                     carTime3 = jsonObject.getString("입차시간");
-                    if(jsonObject.getString("전기차 여부").equals("N")){
-                        carEV3 =  "X";
-                    }else if(jsonObject.getString("전기차 여부").equals("Y")){
-                        carEV3 =  "O";}
+
+                    if(jsonObject.getString("차량 종류").equals("0")) {
+                        layout.setBackgroundResource(R.drawable.bg_general);
+                        carEV3 = "일반";
+
+                        if (jsonObject.getString("전기차 여부").equals("N")) {
+                            carEV3 = "X";
+                        } else if (jsonObject.getString("전기차 여부").equals("Y")) {
+                            carEV3 = "O";
+                        }
+                    }
+
                 }else if(jsonObject.getInt("구역")==30004)
                 {
                     carnum4 = jsonObject.getString("차량번호");

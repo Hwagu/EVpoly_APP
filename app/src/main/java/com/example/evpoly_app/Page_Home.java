@@ -71,7 +71,7 @@ public class Page_Home extends AppCompatActivity {
                 }
         );
 
-        TEXT_todaycar.setText("11대 / 15대");
+        TEXT_todaycar.setText("8대 / 10대");
         TEXT_weeklycar.setText("78대");
         TEXT_monthlycar.setText("350대");
 

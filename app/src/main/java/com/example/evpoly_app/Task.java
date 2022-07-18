@@ -21,7 +21,7 @@ public class Task extends AsyncTask<String, Void, String> {
         URL url = null;
         try {
             //url = new URL("https://jsonplaceholder.typicode.com/users"); // 서버 URL
-            url = new URL("http://10.1.3.64:8080/nowparking"); // 서버 URL
+            url = new URL("http://15.164.142.253:8080/nowparking"); // 서버 URL
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
             conn.setRequestProperty("x-waple-authorization", clientKey);

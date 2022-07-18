@@ -77,7 +77,8 @@ public class Page_History extends AppCompatActivity {
     public String carTime = "-";
     public String A;
 
-    public Drawable drawable;
+    public Drawable drawable1;
+    public Drawable drawable2;
     ImageView BTN_historyTOhome;
     ImageView BTN_historyTOparking;
     ImageView BTN_historyTOnotice;
@@ -96,12 +97,13 @@ public class Page_History extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page_history);
-        textView4 = findViewById(R.id.textView4);
+      //  textView4 = findViewById(R.id.textView4);
         BTN_historyTOhome = findViewById(R.id.BTN_historyTOhome);
         BTN_historyTOparking = findViewById(R.id.BTN_historyTOparking);
         BTN_historyTOnotice = findViewById(R.id.BTN_historyTOnotice);
         BTN_calendar = findViewById(R.id.BTN_calendar);
-        drawable = getResources().getDrawable(R.drawable.nocar);
+        drawable1 = getResources().getDrawable(R.drawable.nocar);
+        drawable2 = getResources().getDrawable(R.drawable.nocar);
         TextView TEXT_date = findViewById(R.id.TEXT_date);
         Calendar cal = Calendar.getInstance();
         //페이지 이동
@@ -169,14 +171,14 @@ public class Page_History extends AppCompatActivity {
                 adapter = new GridViewAdapter();
 
                 if (position == 0) {
-                    car_photo = getResources().getDrawable(R.drawable.car1);
+                    car_photo = getResources().getDrawable(R.drawable.nocar);
 
 //                    int idx = carTime3.indexOf(" ");
 //                    String result = carTime3.substring(0, idx);
 //                    textView4.setText(result);
                     //Adapter 안에 아이템의 정보 담기
-                    adapter.addItem(new carItem("1층 A구역", "급속충전", carnum1, carEV1, carTime1, drawable));
-                    adapter.addItem(new carItem("1층 B구역", "급속충전", carnum2, carEV2, carTime2, no_car_photo));
+                    adapter.addItem(new carItem("1층 A구역", "급속충전", carnum1, carEV1, carTime1, drawable1));
+                    adapter.addItem(new carItem("1층 B구역", "급속충전", carnum2, carEV2, carTime2, drawable2));
                     adapter.addItem(new carItem("1층 C구역", "급속충전", carnum3, carEV3, carTime3, car_photo));
                     adapter.addItem(new carItem("2층 A구역", "일반충전", carnum4, carEV4, carTime4, car_photo));
                     adapter.addItem(new carItem("2층 B구역", "일반충전", carnum5, carEV5, carTime5, car_photo));
@@ -242,7 +244,7 @@ public class Page_History extends AppCompatActivity {
                                 carTime1 = jsonObject.getString("입차시간");
                                 Bitmap getBlob;
                                 getBlob = StringToBitMap(jsonObject.getString("차량사진"));
-                                drawable = new BitmapDrawable(getBlob);
+                                drawable1 = new BitmapDrawable(getBlob);
                                 if (jsonObject.getString("전기차 여부").equals("N")) {
                                     carEV1 = "X";
                                 } else if (jsonObject.getString("전기차 여부").equals("Y")) {
@@ -251,6 +253,9 @@ public class Page_History extends AppCompatActivity {
                             } else if (jsonObject.getInt("구역") == 30002) {
                                 carnum2 = jsonObject.getString("차량번호");
                                 carTime2 = jsonObject.getString("입차시간");
+                                Bitmap getBlob;
+                                getBlob = StringToBitMap(jsonObject.getString("차량사진"));
+                                drawable2 = new BitmapDrawable(getBlob);
                                 if (jsonObject.getString("전기차 여부").equals("N")) {
                                     carEV2 = "X";
                                 } else if (jsonObject.getString("전기차 여부").equals("Y")) {
